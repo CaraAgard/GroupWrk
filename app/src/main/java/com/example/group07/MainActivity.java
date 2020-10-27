@@ -10,7 +10,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("NO mine");
+        System.out.println("Really, mine is better!");
         System.out.println("me");
+        // Hello from Kira
     }
 }
