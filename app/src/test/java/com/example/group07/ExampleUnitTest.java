@@ -1,5 +1,7 @@
 package com.example.group07;
 
+import android.view.View;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,4 +16,18 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void subtraction_isCorrect() { assertEquals(4, 8 - 4);}
+
+    @Test
+    public void saveNewEntryReturnsAString() {
+        MainActivity mainActivity = new MainActivity();
+        String result = mainActivity.saveNewEntry(View.class);
+
+        assertTrue("hi".equals(result));
+    }
+
+
+
 }

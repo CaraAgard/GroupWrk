@@ -14,4 +14,9 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("me");
         // Hello from Kira
     }
+
+
+    public String saveNewEntry(Class<View> view) {
+        return "hi";
+    }
 }
