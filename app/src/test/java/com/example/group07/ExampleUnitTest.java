@@ -20,13 +20,14 @@ public class ExampleUnitTest {
     @Test
     public void subtraction_isCorrect() { assertEquals(4, 8 - 4);}
 
-    @Test
-    public void saveNewEntryReturnsAString() {
-        MainActivity mainActivity = new MainActivity();
-        String result = mainActivity.saveNewEntry(View.class);
-
-        assertTrue("hi".equals(result));
-    }
+    // todo: make sure that saveNewEntry does save to something
+//    @Test
+//    public void saveNewEntryReturnsAString() {
+//        MainActivity mainActivity = new MainActivity();
+//        String result = mainActivity.saveNewEntry(View.class);
+//
+//        assertTrue("hi".equals(result));
+//    }
 
 
 
