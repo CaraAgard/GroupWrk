@@ -15,9 +15,10 @@
         android:padding="10dp"
         android:weightSum="3">
 
+        <!-- Should we have a search bar maybe as a stretch goal? -->
 
         <EditText
-            android:id="@+id/editTextDate"
+            android:id="@+id/viewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
@@ -45,6 +46,8 @@
         android:layout_height="549dp"
         android:orientation="horizontal"
         android:padding="10dp">
+
+        <!-- Still need to figure out how to implement a select on the list -->
 
         <ListView
             android:id="@+id/list"

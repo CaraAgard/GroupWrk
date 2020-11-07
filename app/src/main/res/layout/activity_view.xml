@@ -18,7 +18,7 @@
 
 
         <EditText
-            android:id="@+id/editTextDate"
+            android:id="@+id/viewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
@@ -32,7 +32,6 @@
     </LinearLayout>
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="60dp"
@@ -40,6 +39,8 @@
         android:fontFamily="cursive"
         android:text="      Your Entry"
         android:id="@+id/title"/>
+
+    <!-- Should have a TextEdit with id:header for the entry header -->
 
     <LinearLayout
         android:layout_width="match_parent"

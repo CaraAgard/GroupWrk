@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void openBrowseActivity(View view) {
+        //Intent Implementation Here.
     }
 
 

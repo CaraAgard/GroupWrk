@@ -35,7 +35,7 @@ public class BrowseActivity extends AppCompatActivity {
      * @param view required to use in xml object i.e. a button
      */
     public void viewEntry(View view) {
-
+        //Implement intent here.
     }
 
     /**
