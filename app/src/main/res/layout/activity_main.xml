@@ -76,7 +76,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:onClick="saveNewEntry"
-            android:text="Enter"
+            android:text="Save"
             app:backgroundTint="#6B4F9C" />
 
         <Button
@@ -85,8 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.5"
-            android:text="Search"
             android:onClick="openBrowseActivity"
+            android:text="Browse"
             app:backgroundTint="#6B4F9C" />
 
 

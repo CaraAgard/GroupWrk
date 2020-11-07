@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
      * How a new entry will be saved
      * @param view
      */
-    public void saveNewEntry(Class<View> view) {
+    public void saveNewEntry(View view) {
         Entry entry;
     }
 
