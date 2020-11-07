@@ -29,6 +29,12 @@ public class ExampleUnitTest {
 //        assertTrue("hi".equals(result));
 //    }
 
+    @Test
+    public void seeIfDivisionIsCorrect() {assertEquals(3, 9/3);
+
+    }
+
+
 
 
 }

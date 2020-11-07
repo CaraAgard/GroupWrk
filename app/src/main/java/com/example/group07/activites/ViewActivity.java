@@ -24,8 +24,7 @@ public class ViewActivity extends AppCompatActivity {
 
         Entry entry; // this is where we will store the entry data loaded in from the BrowseActivity
     }
-    public void openSeeEntry(View view) {
-    }
+
 
 
 
