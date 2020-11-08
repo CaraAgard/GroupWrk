@@ -40,7 +40,25 @@
         android:text="   Daily Blessings"
         android:id="@+id/title"/>
 
+
+
     <!-- Should have a TextEdit with id:header for the entry header -->
+
+    <EditText
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:inputType="textPersonName"
+        android:orientation="horizontal"
+        android:text="Title"
+        android:textSize="40dp"
+        android:textColor="@color/white"
+        android:fontFamily="cursive"
+        android:textAlignment="center" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,6 +80,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="20dp" />
+
     </LinearLayout>
 
     <LinearLayout
