@@ -3,6 +3,7 @@ package com.example.group07.activites;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.group07.R;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("me");
 
         setTitle("Gratitude App");
+        Log.d("MainActivity" , "onCreate Function");
     }
 
 
