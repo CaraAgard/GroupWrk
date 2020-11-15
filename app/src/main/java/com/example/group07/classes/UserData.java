@@ -18,7 +18,7 @@ public class UserData {
     public UserData(String author) {
         this.author = author;
         listOfEntries = new ArrayList<>();
-        Log.d("UserData", "UserData Function");
+        Log.d("UserData", "UserData Constructor");
     }
 
     public String getAuthor() {

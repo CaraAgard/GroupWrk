@@ -37,7 +37,7 @@
         android:textSize="60dp"
         android:textColor="@color/white"
         android:fontFamily="cursive"
-        android:text="      Your Entry"
+        android:text="Your Entry"
         android:id="@+id/title"/>
 
     <!-- Should have a TextEdit with id:header for the entry header -->

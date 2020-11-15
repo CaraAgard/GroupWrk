@@ -38,7 +38,7 @@
         android:textSize="60dp"
         android:textColor="@color/white"
         android:fontFamily="cursive"
-        android:text="  Blessing Entries"
+        android:text="Blessing Entries"
         android:id="@+id/title"/>
 
     <LinearLayout

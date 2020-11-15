@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void saveNewEntry(View view) {
         Entry entry;
+
         Log.d("saveNewEntry" , "entry textfield");
     }
 
@@ -49,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void openBrowseActivity(View view) {
-        EditText search = (EditText) findViewById(R.id.search);
-        String browse = search.getText().toString();
+
+
         //Intent Implementation Here.
         Intent browseIntent = new Intent(this, BrowseActivity.class);
-        browseIntent.putExtra(Browse_Part, (Parcelable) search);
+        startActivity(browseIntent);
+
+
 
         Log.d("openBrowseActivity", "Listview intent");
     }

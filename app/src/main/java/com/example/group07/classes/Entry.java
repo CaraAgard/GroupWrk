@@ -26,7 +26,7 @@ public class Entry {
         this.header = header;
         this.body = body;
         date = LocalDateTime.now();
-        Log.d("Entry", "User entry function worked.");
+        Log.d("Entry", "entry function");
     }
 
     public String getHeader() {
