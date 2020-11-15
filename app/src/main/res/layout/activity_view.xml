@@ -56,7 +56,6 @@
             android:layout_height="325dp"
             android:layout_gravity="top"
             android:background="@android:drawable/screen_background_light_transparent"
-            android:hintSize="30dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
     </LinearLayout>
