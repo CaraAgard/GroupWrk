@@ -22,4 +22,12 @@
         android:inputType="numberPassword"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="221dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="303dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
