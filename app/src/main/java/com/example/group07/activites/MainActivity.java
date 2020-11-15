@@ -2,9 +2,12 @@ package com.example.group07.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import com.example.group07.R;
 import com.example.group07.classes.Entry;
@@ -16,6 +19,9 @@ import com.example.group07.classes.Entry;
  * and save it. Also includes the a button to open BrowseActivity.
  */
 public class MainActivity extends AppCompatActivity {
+
+    public static final String Browse_Part = "Browse_Part";
+    private Object EditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void saveNewEntry(View view) {
         Entry entry;
+        Log.d("saveNewEntry" , "entry textfield");
     }
 
     /**
@@ -42,7 +49,13 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void openBrowseActivity(View view) {
+        EditText search = (EditText) findViewById(R.id.search);
+        String browse = search.getText().toString();
         //Intent Implementation Here.
+        Intent browseIntent = new Intent(this, BrowseActivity.class);
+        browseIntent.putExtra(Browse_Part, (Parcelable) search);
+
+        Log.d("openBrowseActivity", "Listview intent");
     }
 
 

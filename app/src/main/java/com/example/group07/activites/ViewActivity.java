@@ -3,6 +3,7 @@ package com.example.group07.activites;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.group07.classes.Entry;
@@ -23,6 +24,7 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
 
         Entry entry; // this is where we will store the entry data loaded in from the BrowseActivity
+        Log.d("ViewActivity", "ViewActivity Function");
     }
 
 

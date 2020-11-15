@@ -1,6 +1,7 @@
 package com.example.group07.classes;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -25,6 +26,7 @@ public class Entry {
         this.header = header;
         this.body = body;
         date = LocalDateTime.now();
+        Log.d("Entry", "User entry function worked.");
     }
 
     public String getHeader() {

@@ -3,6 +3,7 @@ package com.example.group07.activites;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.group07.classes.Entry;
@@ -26,6 +27,7 @@ public class BrowseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
+        Log.d("BrowseActivity", "BrowseActivity Function");
     }
 
     private List<Entry> listOfEntries;
@@ -36,6 +38,7 @@ public class BrowseActivity extends AppCompatActivity {
      */
     public void viewEntry(View view) {
         //Implement intent here.
+        Log.d("viewEntry", "viewEntry Function works");
     }
 
     /**
@@ -43,6 +46,7 @@ public class BrowseActivity extends AppCompatActivity {
      * @return listOfEntries
      */
     private List<Entry> loadEntries() {
+
         return new ArrayList<>();
     }
 }
