@@ -52,6 +52,7 @@ public class BrowseActivity extends AppCompatActivity {
      * @return listOfEntries
      */
     private List<Entry> loadEntries() {
+        Log.d("BrowseActivity", "loadEntries function");
 
         return new ArrayList<>();
     }
