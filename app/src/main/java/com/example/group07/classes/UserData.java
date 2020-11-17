@@ -1,5 +1,7 @@
 package com.example.group07.classes;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class UserData {
     public UserData(String author) {
         this.author = author;
         listOfEntries = new ArrayList<>();
+        Log.d("UserData", "UserData Constructor");
     }
 
     public String getAuthor() {

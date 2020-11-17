@@ -68,8 +68,7 @@
             android:layout_gravity="top"
 
             android:background="@android:drawable/screen_background_light_transparent"
-            android:hint="                 Enter Blessings Here"
-            android:hintSize="30dp"
+            android:hint="Enter Blessings Here"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="20dp" />
