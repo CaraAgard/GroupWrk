@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Group07</string>
+    <string name="daily_blessings">Daily Blessings</string>
+    <string name="title">Title</string>
+    <string name="enter_blessings_here">Enter Blessings Here</string>
+    <string name="save">Save</string>
+    <string name="browse">Browse</string>
+    <string name="your_entry">Your Entry</string>
+    <string name="date">Date</string>
+    <string name="blessing_entries">Blessing Entries</string>
+    <string name="dates">date</string>
+    <string name="dated">dates</string>
+    <string name="titles">title</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
