@@ -53,4 +53,8 @@ public class PreLoginActivity extends AppCompatActivity {
         sharedPreferencesEditor.putString(String.valueOf(pin), PASS_PREFS);
         sharedPreferencesEditor.apply();
     }
+
+    public void onSubmit(View Submit) {
+        //save the password and compare to the first and second
+    }
 }

@@ -6,17 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.group07.R;
 
-import static com.example.group07.activites.PreLoginActivity.PASS_PREFS;
-
 public class LoginActivity extends AppCompatActivity {
 
+    public static final String APP_PREFS = "APPLICATION_PREFERENCES";
     private EditText pass;
 
     @Override
@@ -24,36 +22,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
-
-        //Getting PASS_PREFS
-        SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
-
-        if (PASS_PREFS == null)
-            startActivity(preLoginIntent);
-
         //Define the password text box in view
         pass = (EditText) findViewById(R.id.editTextNumberPassword3);
+
+        //Creating password intent to send to main activity
+        Intent passwordIntent = new Intent(this, MainActivity.class);
     }
 
     public void onSubmit(View Submit) {
-        //Creating password intent to send to main activity
-        Intent passwordIntent = new Intent(this, MainActivity.class);
-
-        //Getting PASS_PREFS
-        SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
 
         //Bring the value from pass into password String
         String password = pass.getText().toString();
 
-        //Check if PASS_PREFS string is equivalent to password
-        if (sharedPreferences.getString(PASS_PREFS, null) == password) {
-            //If so, then start MainActivity
-            startActivity(passwordIntent);
+        if (sharedPreferences.getString() == password) { //figure out how sharedPreferences.getString works
+            //do stuff
         } else {
-            //If not, then provide a toast with an error message
-            Toast.makeText(this, "An error occurred with your PIN, try again.",
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "The PIN is incorrect, try again.");
         }
     }
 }
