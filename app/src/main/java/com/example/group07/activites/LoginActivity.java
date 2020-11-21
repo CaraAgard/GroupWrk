@@ -46,14 +46,22 @@ public class LoginActivity extends AppCompatActivity {
         //Bring the value from pass into password String
         String password = pass.getText().toString();
 
-        //Check if PASS_PREFS string is equivalent to password
-        if (sharedPreferences.getString(PASS_PREFS, null) == password) {
-            //If so, then start MainActivity
-            startActivity(passwordIntent);
-        } else {
-            //If not, then provide a toast with an error message
-            Toast.makeText(this, "An error occurred with your PIN, try again.",
-                    Toast.LENGTH_LONG).show();
-        }
+        int count = 0;
+
+        do {
+            //Check if PASS_PREFS string is equivalent to password
+            if (sharedPreferences.getString(PASS_PREFS, null) == password) {
+                startActivity(passwordIntent);
+            } else {
+                //Increase the counter
+                count++;
+
+                //If not, then provide a toast with an error message about how many attempts are left
+                Toast.makeText(this, "An error occurred with your PIN, try again. You "
+                        + "have " + (5 - count) + "attempts left", Toast.LENGTH_LONG).show();
+            }
+        } while (count < 5);
+
+        //Do something else here if the user was unable to login after 5 attempts.
     }
 }

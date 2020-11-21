@@ -29,19 +29,17 @@ public class PreLoginActivity extends AppCompatActivity {
         pin = (EditText) findViewById(R.id.editTextNumberPassword);
         pinConfirm = (EditText) findViewById(R.id.editTextNumberPassword2);
 
-        do {
-            if (pin == pinConfirm) {
-                Intent passwordSetupIntent = new Intent(this, LoginActivity.class);
+        String pinString = pin.toString();
+        String pinConfirmString = pinConfirm.toString();
 
-                startActivity(passwordSetupIntent);
-            } else {
-                count++;
+        if (pinString == pinConfirmString) {
+            Intent passwordSetupIntent = new Intent(this, LoginActivity.class);
 
-                Toast.makeText(this, "An error occurred with your PIN, try again. You "
-                        + "have " + (5 - count) + "attempts left", Toast.LENGTH_LONG).show();
-            }
-        } while (count < 5);
-
+            startActivity(passwordSetupIntent);
+        } else {
+            Toast.makeText(this, "An error occurred with your PIN, try again.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     public void onSubmit(View Submit) {
