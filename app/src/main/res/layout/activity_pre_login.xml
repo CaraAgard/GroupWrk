@@ -15,15 +15,6 @@
         tools:layout_editor_absoluteY="95dp" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="284dp" />
-
-    <EditText
         android:id="@+id/editTextNumberPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,22 +23,31 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="179dp" />
 
+    <EditText
+        android:id="@+id/editTextNumberPassword2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberPassword"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="284dp" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:text="Enter PIN:"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword2"
-        tools:layout_editor_absoluteX="174dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword"
+        tools:layout_editor_absoluteX="166dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="Confirm PIN:"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword"
-        tools:layout_editor_absoluteX="166dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword2"
+        tools:layout_editor_absoluteX="174dp" />
 
     <Button
         android:id="@+id/submit"
