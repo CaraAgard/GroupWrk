@@ -3,6 +3,7 @@ package com.example.group07.activites;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import com.example.group07.R;
 
 public class LoginActivity extends AppCompatActivity {
 
