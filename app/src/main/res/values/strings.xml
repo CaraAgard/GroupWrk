@@ -40,4 +40,17 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="daily_blessings">Daily Blessings</string>
+    <string name="title">Title</string>
+    <string name="enter_blessings_here">Enter Blessings Here</string>
+    <string name="save">Save</string>
+    <string name="browse">Browse</string>
+    <string name="date">Date</string>
+    <string name="date">Date</string>
+    <string name="your_entry">Your Entry</string>
+    <string name="date">Date</string>
+    <string name="blessing_entries">Blessing Entries</string>
+    <string name="dates">date</string>
+    <string name="dated">dates</string>
+    <string name="titles">title</string>
 </resources>
