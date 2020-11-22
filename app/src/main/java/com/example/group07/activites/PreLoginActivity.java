@@ -22,36 +22,62 @@ public class PreLoginActivity extends AppCompatActivity {
     private EditText pinObj;
     private EditText pinConfirmObj;
 
+    //Intent to go back to Login
+    private Intent passwordSetupSuccessIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_login);
 
-        int count = 0;
-
         pinObj = (EditText) findViewById(R.id.editTextNumberPassword);
         pinConfirmObj = (EditText) findViewById(R.id.editTextNumberPassword2);
+    }
 
-        String pinString = pinObj.toString();
-        String pinConfirmString = pinConfirmObj.toString();
+    public void onSubmit(View Submit) {
+        // get pins from the user
+        String pinString = pinObj.getText().toString();
+        Log.d(TAG, "pin is " + pinString);
+        String pinConfirmString = pinConfirmObj.getText().toString();
+        Log.d(TAG, "pinConfirm is " + pinConfirmString);
 
-        if (pinString != null && pinString.equals(pinConfirmString)) {
-            Intent passwordSetupIntent = new Intent(this, LoginActivity.class);
 
-            startActivity(passwordSetupIntent);
+        // pin will only save when pin and pinConfirm are equal
+        if (!pinString.isEmpty() && pinString.equals(pinConfirmString)) {
+            Log.d(TAG,"onSubmit: About to save pin " + pinString);
+
+            // save pin in SharedPreferences
+            // get editor first
+            SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
+            SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+            // save pin via (key, value)
+            sharedPreferencesEditor.putString(PIN_KEY, pinString);
+            sharedPreferencesEditor.apply();
+
+            // todo: move from source code folder to test code folder
+            testPin(pinString);
+
+            Log.d(TAG, "Going back to LoginActivity");
+            passwordSetupSuccessIntent = new Intent(this, LoginActivity.class);
+            startActivity(passwordSetupSuccessIntent);
         } else {
             Toast.makeText(this, "An error occurred with your PIN, try again.",
                     Toast.LENGTH_LONG).show();
         }
     }
 
-    public void onSubmit(View Submit) {
+
+    /**
+     * A test to make sure that pin was saved in SharedPreferences.
+     *   Should be moved to a testing folder.
+     *   Only creates an error message for now.
+     */
+    private void testPin(String pinCreated) {
         SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
-        SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+        String pinSaved = sharedPreferences.getString(PIN_KEY, "");
 
-        Log.d(TAG,"onSubmit: About to save " + pinObj);
-
-        sharedPreferencesEditor.putString(String.valueOf(pinObj), PASS_PREFS);
-        sharedPreferencesEditor.apply();
+        if (!pinSaved.equals(pinCreated)) {
+            Log.e(TAG, "pin saved does not match pin created");
+        }
     }
 }
