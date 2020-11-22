@@ -19,8 +19,8 @@ public class PreLoginActivity extends AppCompatActivity {
 
     public static final String PASS_PREFS = "PASS_PREFERENCES";
     public static final String PIN_KEY = "PreLoginActivity_pin_key";
-    private EditText pin;
-    private EditText pinConfirm;
+    private EditText pinObj;
+    private EditText pinConfirmObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,11 @@ public class PreLoginActivity extends AppCompatActivity {
 
         int count = 0;
 
-        pin = (EditText) findViewById(R.id.editTextNumberPassword);
-        pinConfirm = (EditText) findViewById(R.id.editTextNumberPassword2);
+        pinObj = (EditText) findViewById(R.id.editTextNumberPassword);
+        pinConfirmObj = (EditText) findViewById(R.id.editTextNumberPassword2);
 
-        String pinString = pin.toString();
-        String pinConfirmString = pinConfirm.toString();
+        String pinString = pinObj.toString();
+        String pinConfirmString = pinConfirmObj.toString();
 
         if (pinString != null && pinString.equals(pinConfirmString)) {
             Intent passwordSetupIntent = new Intent(this, LoginActivity.class);
@@ -49,9 +49,9 @@ public class PreLoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
 
-        Log.d(TAG,"onSubmit: About to save " + pin);
+        Log.d(TAG,"onSubmit: About to save " + pinObj);
 
-        sharedPreferencesEditor.putString(String.valueOf(pin), PASS_PREFS);
+        sharedPreferencesEditor.putString(String.valueOf(pinObj), PASS_PREFS);
         sharedPreferencesEditor.apply();
     }
 }
