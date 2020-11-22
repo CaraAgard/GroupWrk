@@ -16,21 +16,6 @@
         android:weightSum="3">
 
         <!-- Should we have a search bar maybe as a stretch goal? -->
-
-        <EditText
-            android:id="@+id/viewDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_weight="1"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/dates"
-            android:inputType="date"
-            android:text="@string/date"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp" />
     </LinearLayout>
 
     <TextView
