@@ -20,6 +20,8 @@ import com.example.group07.classes.Entry;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private String TAG = "MainActivity";
+
     public static final String Browse_Part = "Browse_Part";
     private Object EditText;
 
@@ -31,23 +33,23 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("me");
 
         setTitle("Gratitude App");
-        Log.d("MainActivity" , "onCreate Function");
+        Log.d(TAG, "onCreate");
     }
 
 
     /**
      * How a new entry will be saved
-     * @param view
+     * @param view stuff
      */
     public void saveNewEntry(View view) {
         Entry entry;
 
-        Log.d("saveNewEntry" , "entry textfield");
+        Log.d(TAG , "saveNewEntry");
     }
 
     /**
      * How the user will get to the BrowseActivity
-     * @param view
+     * @param view stuff
      */
     public void openBrowseActivity(View view) {
 
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Log.d("openBrowseActivity", "Listview intent");
+        Log.d(TAG, "openBrowseActivity: Listview intent");
     }
 
 

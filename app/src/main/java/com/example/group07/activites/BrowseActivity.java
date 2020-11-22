@@ -19,10 +19,12 @@ import java.util.List;
  */
 public class BrowseActivity extends AppCompatActivity {
 
+    private String TAG = "BrowseActivity";
+
     /**
      * Where the magic of getting all the data from the list of entries and displaying them
      * back to the user will happen.
-     * @param savedInstanceState
+     * @param savedInstanceState stuff
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class BrowseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_browse);
 
         Intent intent = getIntent();
-        Log.d("onCreate", "BrowseActivity Function");
+        Log.d(TAG, "onCreate");
     }
 
     private List<Entry> listOfEntries;
@@ -44,7 +46,7 @@ public class BrowseActivity extends AppCompatActivity {
         //Implement intent here.
         Intent viewIntent = new Intent(this, ViewActivity.class);
         startActivity(viewIntent);
-        Log.d("viewEntry", "viewEntry Function works");
+        Log.d(TAG, "viewEntry");
     }
 
     /**
@@ -52,7 +54,7 @@ public class BrowseActivity extends AppCompatActivity {
      * @return listOfEntries
      */
     private List<Entry> loadEntries() {
-        Log.d("BrowseActivity", "loadEntries function");
+        Log.d(TAG, "loadEntries");
 
         return new ArrayList<>();
     }
