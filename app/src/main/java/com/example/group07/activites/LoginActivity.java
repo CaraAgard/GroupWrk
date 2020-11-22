@@ -20,7 +20,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private String TAG = "LoginActivity";
 
-    private EditText pass;
+    private EditText passwordObj;
+    private String pinString;
+    private int numAttemptsLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,43 +35,42 @@ public class LoginActivity extends AppCompatActivity {
 
         //Getting pin from sharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
-        String pinString = sharedPreferences.getString(PIN_KEY, "");
+        pinString = sharedPreferences.getString(PIN_KEY, "");
+        Log.d(TAG, "pin is " + pinString);
 
         if (pinString.isEmpty())
             startActivity(preLoginIntent);
 
         //Define the password text box in view
-        pass = (EditText) findViewById(R.id.editTextNumberPassword3);
+        passwordObj = (EditText) findViewById(R.id.editTextNumberPassword3);
+
+        // set number of attempts
+        numAttemptsLeft = 5;
     }
 
     public void onSubmit(View Submit) {
         Log.d(TAG, "onSubmit: start");
 
-        //Creating password intent to send to main activity
-        Intent passwordIntent = new Intent(this, MainActivity.class);
+        //Bring the value from passwordObj into password String
+        String password = passwordObj.getText().toString();
+        Log.d(TAG, "user entered: " + password);
 
-        //Getting PASS_PREFS
-        SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
+        //Check if pinString string is equivalent to password
+        if (numAttemptsLeft <= 1) {
+            Toast.makeText(this, "Sorry, you exceeded your number of attempts",
+                    Toast.LENGTH_LONG).show();
+        } else if (pinString.equals(password)) {
+            //Creating password intent to send to main activity
+            Intent passwordSuccessfulIntent = new Intent(this, MainActivity.class);
+            startActivity(passwordSuccessfulIntent);
+        } else {
+            //Increase the counter
+            numAttemptsLeft--;
 
-        //Bring the value from pass into password String
-        String password = pass.getText().toString();
-
-        int count = 0;
-
-        do {
-            //Check if PASS_PREFS string is equivalent to password
-            if (sharedPreferences.getString(PASS_PREFS, null).equals(password)) {
-                startActivity(passwordIntent);
-            } else {
-                //Increase the counter
-                count++;
-
-                //If not, then provide a toast with an error message about how many attempts are left
-                Toast.makeText(this, "An error occurred with your PIN, try again. You "
-                        + "have " + (5 - count) + "attempts left", Toast.LENGTH_LONG).show();
-            }
-        } while (count < 5);
-
+            //If not, then provide a toast with an error message about how many attempts are left
+            Toast.makeText(this, "An error occurred with your PIN, try again. You "
+                    + "have " + numAttemptsLeft + " attempts left", Toast.LENGTH_LONG).show();
+        }
         //Do something else here if the user was unable to login after 5 attempts.
     }
 }
