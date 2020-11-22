@@ -15,9 +15,11 @@ import com.example.group07.R;
  */
 public class ViewActivity extends AppCompatActivity {
 
+    private String TAG = "ViewActivity";
+
     /**
      * Loads in data from the BrowseActivity and gets the screen ready for display.
-     * @param savedInstanceState
+     * @param savedInstanceState stuff
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,7 @@ public class ViewActivity extends AppCompatActivity {
 
         Entry entry; // this is where we will store the entry data loaded in from the BrowseActivity
         Intent intent = getIntent();
-        Log.d("ViewActivity", "ViewActivity Function");
+        Log.d(TAG, "ViewActivity Function");
     }
 
 

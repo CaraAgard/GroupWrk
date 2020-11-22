@@ -15,6 +15,8 @@ import com.example.group07.R;
 
 public class PreLoginActivity extends AppCompatActivity {
 
+    private String TAG = "PreLoginActivity";
+
     public static final String PASS_PREFS = "PASS_PREFERENCES";
     private EditText pin;
     private EditText pinConfirm;
@@ -32,7 +34,7 @@ public class PreLoginActivity extends AppCompatActivity {
         String pinString = pin.toString();
         String pinConfirmString = pinConfirm.toString();
 
-        if (pinString == pinConfirmString) {
+        if (pinString != null && pinString.equals(pinConfirmString)) {
             Intent passwordSetupIntent = new Intent(this, LoginActivity.class);
 
             startActivity(passwordSetupIntent);
@@ -46,7 +48,7 @@ public class PreLoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
 
-        Log.d("LoginActivity:onSubmit","About to save " + pin);
+        Log.d(TAG,"onSubmit: About to save " + pin);
 
         sharedPreferencesEditor.putString(String.valueOf(pin), PASS_PREFS);
         sharedPreferencesEditor.apply();

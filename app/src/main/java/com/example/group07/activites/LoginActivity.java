@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,12 +17,16 @@ import static com.example.group07.activites.PreLoginActivity.PASS_PREFS;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private String TAG = "LoginActivity";
+
     private EditText pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Log.d(TAG, "onCreate");
 
         Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
 
@@ -36,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onSubmit(View Submit) {
+        Log.d(TAG, "onSubmit: start");
+
         //Creating password intent to send to main activity
         Intent passwordIntent = new Intent(this, MainActivity.class);
 
@@ -49,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
         do {
             //Check if PASS_PREFS string is equivalent to password
-            if (sharedPreferences.getString(PASS_PREFS, null) == password) {
+            if (sharedPreferences.getString(PASS_PREFS, null).equals(password)) {
                 startActivity(passwordIntent);
             } else {
                 //Increase the counter
