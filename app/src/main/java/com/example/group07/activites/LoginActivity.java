@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.group07.R;
 
 import static com.example.group07.activites.PreLoginActivity.PASS_PREFS;
+import static com.example.group07.activites.PreLoginActivity.PIN_KEY;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,10 +31,11 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
 
-        //Getting PASS_PREFS
+        //Getting pin from sharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
+        String pinString = sharedPreferences.getString(PIN_KEY, "");
 
-        if (PASS_PREFS == null)
+        if (pinString.isEmpty())
             startActivity(preLoginIntent);
 
         //Define the password text box in view

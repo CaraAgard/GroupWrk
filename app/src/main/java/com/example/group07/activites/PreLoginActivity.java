@@ -18,6 +18,7 @@ public class PreLoginActivity extends AppCompatActivity {
     private String TAG = "PreLoginActivity";
 
     public static final String PASS_PREFS = "PASS_PREFERENCES";
+    public static final String PIN_KEY = "PreLoginActivity_pin_key";
     private EditText pin;
     private EditText pinConfirm;
 
