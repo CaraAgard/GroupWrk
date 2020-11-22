@@ -2,7 +2,9 @@ package com.example.group07.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.group07.classes.Entry;
@@ -26,6 +28,9 @@ public class BrowseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
+
+        Intent intent = getIntent();
+        Log.d("onCreate", "BrowseActivity Function");
     }
 
     private List<Entry> listOfEntries;
@@ -35,7 +40,11 @@ public class BrowseActivity extends AppCompatActivity {
      * @param view required to use in xml object i.e. a button
      */
     public void viewEntry(View view) {
+
         //Implement intent here.
+        Intent viewIntent = new Intent(this, ViewActivity.class);
+        startActivity(viewIntent);
+        Log.d("viewEntry", "viewEntry Function works");
     }
 
     /**
@@ -43,6 +52,8 @@ public class BrowseActivity extends AppCompatActivity {
      * @return listOfEntries
      */
     private List<Entry> loadEntries() {
+        Log.d("BrowseActivity", "loadEntries function");
+
         return new ArrayList<>();
     }
 }

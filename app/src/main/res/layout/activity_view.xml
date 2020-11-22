@@ -19,25 +19,27 @@
 
         <EditText
             android:id="@+id/viewDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
+            android:hint="@string/dated"
             android:inputType="date"
-            android:text="Date"
+            android:text="@string/date"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="60dp"
+        android:textSize="60sp"
         android:textColor="@color/white"
         android:fontFamily="cursive"
-        android:text="      Your Entry"
+        android:text="@string/your_entry"
         android:id="@+id/title"/>
 
     <!-- Should have a TextEdit with id:header for the entry header -->
@@ -56,21 +58,10 @@
             android:layout_height="325dp"
             android:layout_gravity="top"
             android:background="@android:drawable/screen_background_light_transparent"
-            android:hintSize="30dp"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="153dp"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-
-
-
-    </LinearLayout>
 </LinearLayout>
 
 
