@@ -5,12 +5,13 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Daily Blessings"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Group07">
         <activity android:name=".activites.PreLoginActivity"></activity>
-        <activity android:name=".activites.LoginActivity">
+        <activity android:name=".activites.LoginActivity"
+            android:parentActivityName=".activites.PreLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
