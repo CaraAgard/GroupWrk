@@ -97,7 +97,7 @@ public class DatabaseFacade {
                                             @NonNull Entry entry) {
                 Log.d(TAG, "adapter onBindViewHolder");
                 viewHolder.title.setText(entry.getTitle());
-                viewHolder.date.setText(entry.getBody());
+                viewHolder.date.setText(entry.getDate());
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
