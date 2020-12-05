@@ -16,13 +16,12 @@
         android:weightSum="3">
 
         <TextView
-            android:id="@+id/viewDate"
-            android:layout_width="0dp"
+            android:id="@+id/mainDate"
+            android:layout_width="384dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="date"
             android:text="@string/date"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -30,16 +29,16 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/viewTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="60sp"
-        android:textColor="@color/white"
         android:fontFamily="cursive"
         android:text="@string/daily_blessings"
-        android:id="@+id/viewTitle"/>
+        android:textColor="@color/white"
+        android:textSize="60sp" />
 
     <EditText
-        android:id="@+id/header"
+        android:id="@+id/mainTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -65,7 +64,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/viewBody"
+            android:id="@+id/mainBody"
             android:layout_width="387dp"
             android:layout_height="336dp"
             android:layout_gravity="top"
@@ -84,7 +83,7 @@
         android:padding="10dp">
 
         <Button
-            android:id="@+id/enter"
+            android:id="@+id/mainSubmitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -94,7 +93,7 @@
             app:backgroundTint="#6B4F9C" />
 
         <Button
-            android:id="@+id/search"
+            android:id="@+id/mainBrowseButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="center"
