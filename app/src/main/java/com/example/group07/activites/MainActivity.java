@@ -1,15 +1,19 @@
 package com.example.group07.activites;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.group07.R;
+import com.example.group07.classes.DatabaseFacade;
 import com.example.group07.classes.Entry;
 
 /**
@@ -21,19 +25,30 @@ import com.example.group07.classes.Entry;
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
+    // todo: get a username from the user?
+    // Or automatically create a unique id when they set a pin
+    // for the first time
+    private String author = "testAuthor";
 
-    public static final String Browse_Part = "Browse_Part";
-    private Object EditText;
+    private EditText editTitle;
+    private EditText editBody;
+    private TextView viewDate;
+
+    DatabaseFacade database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("Really, mine is better!");
-        System.out.println("me");
 
         setTitle("Gratitude App");
         Log.d(TAG, "onCreate");
+
+        // set up variables
+        database = new DatabaseFacade(author);
+        editTitle = findViewById(R.id.mainTitle);
+        editBody = findViewById(R.id.mainBody);
+        viewDate = findViewById(R.id.mainDate);
     }
 
 
@@ -41,10 +56,27 @@ public class MainActivity extends AppCompatActivity {
      * How a new entry will be saved
      * @param view stuff
      */
+    @RequiresApi(api = Build.VERSION_CODES.O) // needed for date
     public void saveNewEntry(View view) {
-        Entry entry;
+        String titleStr = editTitle.getText().toString();
+        String bodyStr = editBody.getText().toString();
 
+        Entry entry = new Entry(titleStr, bodyStr);
+
+        database.addValue(entry);
+
+        clean();
         Log.d(TAG , "saveNewEntry");
+    }
+
+    /**
+     * resets editViews to add in a new entry
+     */
+    private void clean() {
+        editBody.setText("");
+        editTitle.setText("");
+
+        editTitle.requestFocus();
     }
 
     /**
@@ -52,16 +84,10 @@ public class MainActivity extends AppCompatActivity {
      * @param view stuff
      */
     public void openBrowseActivity(View view) {
-
-
         //Intent Implementation Here.
         Intent browseIntent = new Intent(this, BrowseActivity.class);
         startActivity(browseIntent);
 
-
-
         Log.d(TAG, "openBrowseActivity: Listview intent");
     }
-
-
 }

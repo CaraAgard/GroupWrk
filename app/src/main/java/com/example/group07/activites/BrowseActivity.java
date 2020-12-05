@@ -1,17 +1,16 @@
 package com.example.group07.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
-import com.example.group07.classes.Entry;
+import com.example.group07.classes.DatabaseFacade;
 import com.example.group07.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
 /**
  * BrowseActivity is the screen on the app where the user will be able to view a list of previous
@@ -20,6 +19,11 @@ import java.util.List;
 public class BrowseActivity extends AppCompatActivity {
 
     private String TAG = "BrowseActivity";
+    private String author;
+    private Context contextBrowseActivity;
+    private DatabaseFacade database;
+    private FirebaseRecyclerAdapter firebaseRecyclerAdapter;
+
 
     /**
      * Where the magic of getting all the data from the list of entries and displaying them
@@ -31,31 +35,48 @@ public class BrowseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-        Intent intent = getIntent();
         Log.d(TAG, "onCreate");
+
+        contextBrowseActivity = this;
+        author = "testAuthor";
+
+        /* *************************************************** */
+
+        // create a recycler view and set its layout manager
+        RecyclerView recyclerView = findViewById(R.id.browseRecyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        // connection to the database
+        database = new DatabaseFacade(author);
+
+        Log.d(TAG, "Creating firebaseRecyclerAdapter");
+        firebaseRecyclerAdapter = database.getFirebaseRecyclerAdapter(contextBrowseActivity);
+
+        Log.d(TAG, "setting the adapter");
+        Log.d(TAG, "RecyclerAdapter:" + firebaseRecyclerAdapter.toString());
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+
     }
 
-    private List<Entry> listOfEntries;
-
-    /**
-     * Will take the user to the ViewActivity
-     * @param view required to use in xml object i.e. a button
-     */
-    public void viewEntry(View view) {
-
-        //Implement intent here.
-        Intent viewIntent = new Intent(this, ViewActivity.class);
-        startActivity(viewIntent);
-        Log.d(TAG, "viewEntry");
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in.
+        // TODO: Add code to check if user is signed in.
     }
 
-    /**
-     * Loads in the entries from the save file
-     * @return listOfEntries
-     */
-    private List<Entry> loadEntries() {
-        Log.d(TAG, "loadEntries");
+    @Override
+    public void onPause() {
+        firebaseRecyclerAdapter.stopListening();
+        super.onPause();
+    }
 
-        return new ArrayList<>();
+    @Override
+    public void onResume() {
+        super.onResume();
+        // allows the adapter to update content
+        firebaseRecyclerAdapter.startListening();
     }
 }

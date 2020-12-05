@@ -25,7 +25,7 @@
         android:textColor="@color/white"
         android:fontFamily="cursive"
         android:text="@string/blessing_entries"
-        android:id="@+id/title"/>
+        android:id="@+id/viewTitle"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,9 +35,9 @@
 
         <!-- Still need to figure out how to implement a select on the list -->
 
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/browseRecyclerView"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:drawable/screen_background_light_transparent" />
     </LinearLayout>
