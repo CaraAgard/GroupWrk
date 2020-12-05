@@ -18,8 +18,8 @@
 
 
         <EditText
-            android:id="@+id/viewDate"
-            android:layout_width="0dp"
+            android:id="@+id/mainDate"
+            android:layout_width="392dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_weight="1"
@@ -34,13 +34,13 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/viewTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="60sp"
-        android:textColor="@color/white"
         android:fontFamily="cursive"
         android:text="@string/your_entry"
-        android:id="@+id/title"/>
+        android:textColor="@color/white"
+        android:textSize="60sp" />
 
     <!-- Should have a TextEdit with id:header for the entry header -->
 
@@ -53,7 +53,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/entry"
+            android:id="@+id/mainBody"
             android:layout_width="387dp"
             android:layout_height="325dp"
             android:layout_gravity="top"
