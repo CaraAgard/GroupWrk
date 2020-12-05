@@ -7,8 +7,6 @@
     android:background="@drawable/sunrise"
     tools:context=".activites.PreLoginActivity">
 
-
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -103,8 +101,8 @@
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="103dp"
-        android:layout_height="43dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
         android:layout_marginLeft="159dp"
         android:layout_marginTop="37dp"
@@ -113,7 +111,6 @@
         android:layout_marginBottom="317dp"
         android:onClick="onSubmit"
         android:text="Submit"
-
         app:backgroundTint="#6B4F9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

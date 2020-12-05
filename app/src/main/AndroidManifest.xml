@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Group07">
         <activity android:name=".activites.PreLoginActivity"></activity>
-        <activity android:name=".activites.LoginActivity"
-            android:parentActivityName=".activites.PreLoginActivity">
+        <activity android:name=".activites.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
