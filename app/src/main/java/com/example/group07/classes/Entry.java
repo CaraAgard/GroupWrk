@@ -7,8 +7,6 @@ import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
 
-import java.time.LocalDateTime;
-
 /**
  * Stores the data of an entry made by the user
  *
@@ -17,39 +15,50 @@ import java.time.LocalDateTime;
  * intending to be something that they are grateful for.
  */
 public class Entry {
-    private String header;
+    private String id;
+    private String title;
     private String body;
-    private LocalDateTime date;
+    private String date; // firebase cannot convert string to localdatetime
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public Entry(String header, String body) {
-        this.header = header;
+    public Entry(String title, String body) {
+        this.title = title;
         this.body = body;
-        date = LocalDateTime.now();
+        date = LocalDateTime.now().toString();
         Log.d("Entry", "entry function");
     }
 
-    public String getHeader() {
-        return header;
+    public Entry() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getBody() {
         return body;
     }
 
-    public LocalDateTime getTime() {
+    public String getDate() {
         return date;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setBody(String body) {
         this.body = body;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

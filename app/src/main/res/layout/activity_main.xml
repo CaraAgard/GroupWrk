@@ -36,7 +36,7 @@
         android:textColor="@color/white"
         android:fontFamily="cursive"
         android:text="@string/daily_blessings"
-        android:id="@+id/title"/>
+        android:id="@+id/viewTitle"/>
 
     <EditText
         android:id="@+id/header"
@@ -65,7 +65,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/entry"
+            android:id="@+id/viewBody"
             android:layout_width="387dp"
             android:layout_height="336dp"
             android:layout_gravity="top"
