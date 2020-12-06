@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
         android:layout_marginBottom="48dp"
-        android:text="Enter your PIN"
+        android:text="@string/enter_your_pin"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword3"
@@ -37,7 +37,7 @@
 
     <EditText
         android:id="@+id/editTextNumberPassword3"
-        android:hint="your pin"
+        android:hint="@string/your_pin"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -59,7 +59,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="280dp"
         android:onClick="onSubmit"
-        android:text="Submit"
+        android:text="@string/submit"
         app:backgroundTint="#6B4F9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

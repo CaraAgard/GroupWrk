@@ -20,4 +20,14 @@
     <string name="dates">date</string>
     <string name="dated">dates</string>
     <string name="titles">title</string>
+    <string name="todo">TODO</string>
+    <string name="enter_your_pin_below">Enter your PIN below</string>
+    <string name="enter_four_digit_pin">Enter four digit PIN:</string>
+    <string name="confirm_four_digit_pin">Confirm four digit PIN:</string>
+    <string name="submit">Submit</string>
+    <string name="pin">pin</string>
+    <string name="pin">pin</string>
+    <string name="enter_your_pin">Enter your PIN</string>
+    <string name="your_pin">your pin</string>
+    <string name="submit">Submit</string>
 </resources>

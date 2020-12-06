@@ -19,7 +19,7 @@
 
         <EditText
             android:id="@+id/mainDate"
-            android:layout_width="392dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_weight="1"
