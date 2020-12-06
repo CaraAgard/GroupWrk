@@ -62,7 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         } else if (pinString.equals(password)) {
             //Creating password intent to send to main activity
-            Intent passwordSuccessfulIntent = new Intent(this, MainActivity.class);
+           // Intent passwordSuccessfulIntent = new Intent(this, MainActivity.class);
+            Intent passwordSuccessfulIntent = new Intent(this, BrowseActivity.class);
             startActivity(passwordSuccessfulIntent);
         } else {
             //Increase the counter
@@ -74,4 +75,5 @@ public class LoginActivity extends AppCompatActivity {
         }
         //Do something else here if the user was unable to login after 5 attempts.
     }
+
 }

@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view stuff
      */
     public void openBrowseActivity(View view) {
-        //Intent Implementation Here.
+       // Intent Implementation Here.
         Intent browseIntent = new Intent(this, BrowseActivity.class);
         startActivity(browseIntent);
 
