@@ -9,6 +9,18 @@
 
 
     <TextView
+        android:id="@+id/viewTitle"
+        android:layout_width="371dp"
+        android:layout_height="64dp"
+        android:fontFamily="cursive"
+        android:text="@string/daily_blessings"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
