@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activites.MainActivity"
     android:orientation="vertical"
     android:background="@drawable/th">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="3">
-
-        <!-- Should we have a search bar maybe as a stretch goal? -->
-    </LinearLayout>
 
     <TextView
 
@@ -24,7 +15,7 @@
         android:textSize="60sp"
         android:textColor="@color/white"
         android:fontFamily="cursive"
-        android:text="@string/blessing_entries"
+        android:text="@string/browse_title"
         android:id="@+id/viewTitle"/>
 
     <LinearLayout
@@ -40,5 +31,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:drawable/screen_background_light_transparent" />
+
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_new_entry"
+        android:layout_width="47dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:contentDescription="@string/todo"
+        android:focusable="true"
+        android:onClick="goToMainActivity"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
 </LinearLayout>

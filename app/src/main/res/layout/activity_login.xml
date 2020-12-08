@@ -9,12 +9,24 @@
 
 
     <TextView
+        android:id="@+id/viewTitle"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="@string/login_title"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
         android:layout_marginBottom="48dp"
-        android:text="Enter your PIN"
+        android:text="@string/enter_your_pin"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword3"
@@ -25,7 +37,7 @@
 
     <EditText
         android:id="@+id/editTextNumberPassword3"
-        android:hint="your pin"
+        android:hint="@string/your_pin"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -47,7 +59,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="280dp"
         android:onClick="onSubmit"
-        android:text="Submit"
+        android:text="@string/submit"
         app:backgroundTint="#6B4F9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

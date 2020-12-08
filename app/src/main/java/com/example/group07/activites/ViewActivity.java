@@ -32,6 +32,7 @@ public class ViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
+        setTitle("View Entry");
 
         Entry entry; // this is where we will store the entry data loaded in from the BrowseActivity
         Intent intent = getIntent();

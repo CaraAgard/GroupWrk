@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Create new Entry");
 
         setTitle("Gratitude App");
         Log.d(TAG, "onCreate");
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view stuff
      */
     public void openBrowseActivity(View view) {
-        //Intent Implementation Here.
+       // Intent Implementation Here.
         Intent browseIntent = new Intent(this, BrowseActivity.class);
         startActivity(browseIntent);
 

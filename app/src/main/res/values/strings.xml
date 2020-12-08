@@ -9,7 +9,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="daily_blessings">Daily Blessings</string>
+    <string name="login_title">Gratitude App</string>
+    <string name="browse_title">Browse Entries</string>
+    <string name="main_title">New Entry</string>
+    <string name="pre_login_title">Create New Pin</string>
     <string name="title">Title</string>
     <string name="enter_blessings_here">Enter Blessings Here</string>
     <string name="save">Save</string>
@@ -19,5 +22,13 @@
     <string name="blessing_entries">Blessing Entries</string>
     <string name="dates">date</string>
     <string name="dated">dates</string>
-    <string name="titles">title</string>
+    <string name="main_entry_title">Enter Title</string>
+    <string name="todo">TODO</string>
+    <string name="enter_your_pin_below">Enter your PIN below</string>
+    <string name="enter_four_digit_pin">Enter four digit PIN:</string>
+    <string name="confirm_four_digit_pin">Confirm four digit PIN:</string>
+    <string name="pin">pin</string>
+    <string name="enter_your_pin">Enter your PIN</string>
+    <string name="your_pin">your pin</string>
+    <string name="submit">Submit</string>
 </resources>
