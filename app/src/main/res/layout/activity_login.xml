@@ -11,9 +11,9 @@
     <TextView
         android:id="@+id/viewTitle"
         android:layout_width="371dp"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:fontFamily="cursive"
-        android:text="@string/daily_blessings"
+        android:text="@string/login_title"
         android:textColor="@color/white"
         android:textSize="60sp"
         tools:ignore="MissingConstraints"

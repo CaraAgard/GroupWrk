@@ -15,7 +15,7 @@
         android:textSize="60sp"
         android:textColor="@color/white"
         android:fontFamily="cursive"
-        android:text="@string/blessing_entries"
+        android:text="@string/browse_title"
         android:id="@+id/viewTitle"/>
 
     <LinearLayout
@@ -35,13 +35,14 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="match_parent"
+        android:id="@+id/button_new_entry"
+        android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:clickable="true"
-        app:srcCompat="@android:drawable/ic_menu_add"
         android:contentDescription="@string/todo"
-        android:focusable="true" />
+        android:focusable="true"
+        android:onClick="goToMainActivity"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
 </LinearLayout>

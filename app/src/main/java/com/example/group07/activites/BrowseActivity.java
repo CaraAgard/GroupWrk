@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.group07.classes.DatabaseFacade;
 import com.example.group07.R;
@@ -34,6 +36,7 @@ public class BrowseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
+        setTitle("Browse Entries");
 
         Log.d(TAG, "onCreate");
 
@@ -78,5 +81,11 @@ public class BrowseActivity extends AppCompatActivity {
         super.onResume();
         // allows the adapter to update content
         firebaseRecyclerAdapter.startListening();
+    }
+
+
+    public void goToMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

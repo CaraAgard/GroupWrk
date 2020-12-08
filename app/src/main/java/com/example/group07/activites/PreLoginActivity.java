@@ -30,6 +30,7 @@ public class PreLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_login);
         setTitle(null);
+        setTitle("Create Pin");
 
         pinObj = (EditText) findViewById(R.id.editTextNumberPassword);
         pinConfirmObj = (EditText) findViewById(R.id.editTextNumberPassword2);
