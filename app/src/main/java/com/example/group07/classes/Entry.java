@@ -15,6 +15,12 @@ import java.time.LocalDateTime;
  * intending to be something that they are grateful for.
  */
 public class Entry {
+    // static keys
+    public static String idKey = "id";
+    public static String titleKey = "title";
+    public static String bodyKey = "body";
+    public static String dateKey = "date";
+
     private String id;
     private String title;
     private String body;

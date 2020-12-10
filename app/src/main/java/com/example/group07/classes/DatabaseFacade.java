@@ -45,6 +45,9 @@ public class DatabaseFacade {
     private String referenceName;
     private DatabaseReference rootDatabaseReference;
     private DatabaseReference dataReference;
+    private String dateChild = "date";
+    private String bodyChild = "body";
+    private String titleChild = "title";
 
     public DatabaseFacade(String name) {
         this.referenceName = name;
@@ -52,7 +55,22 @@ public class DatabaseFacade {
         Log.d(TAG, "Reference to the database: " + rootDatabaseReference.toString());
         dataReference = rootDatabaseReference.child(referenceName).child("entries");
         Log.d(TAG, "Reference to the entries: " + rootDatabaseReference.toString());
+    }
 
+    /**
+     * Used to get the database reference for the given author. This is so other classes can access
+     * @param id of the entry to be removed
+     */
+    public void removeEntry(String id) {
+        dataReference.child(id).removeValue();
+    }
+
+    /**
+     * Used to update an entry with the given id
+     */
+    public void updateEntry(String id, String title, String body) {
+        dataReference.child(id).child(titleChild).setValue(title);
+        dataReference.child(id).child(bodyChild).setValue(body);
     }
 
     /**
@@ -107,6 +125,7 @@ public class DatabaseFacade {
                         intent.putExtra("title", entry.getTitle());
                         intent.putExtra("body", entry.getBody());
                         intent.putExtra("date", entry.getDate());
+                        intent.putExtra("id", entry.getId());
                         context.startActivity(intent);
                     }
                 });
