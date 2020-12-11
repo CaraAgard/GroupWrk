@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activites.MainActivity"
-    android:orientation="vertical"
-    android:background="@drawable/th">
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="60sp"
-        android:textColor="@color/white"
-        android:fontFamily="cursive"
-        android:text="@string/browse_title"
-        android:id="@+id/viewTitle"/>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="549dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        tools:context=".activites.MainActivity"
+        android:orientation="vertical"
+        android:background="@drawable/th">
 
-        <!-- Still need to figure out how to implement a select on the list -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:textColor="@color/white"
+            android:fontFamily="cursive"
+            android:text="@string/browse_title"
+            android:id="@+id/viewTitle"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/browseRecyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:layout_height="549dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <!-- Still need to figure out how to implement a select on the list -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/browseRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:drawable/screen_background_light_transparent" />
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_new_entry"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:contentDescription="@string/todo"
+            android:focusable="true"
+            android:onClick="goToMainActivity"
+            app:srcCompat="@android:drawable/ic_menu_add" />
 
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_new_entry"
-        android:layout_width="47dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:clickable="true"
-        android:contentDescription="@string/todo"
-        android:focusable="true"
-        android:onClick="goToMainActivity"
-        app:srcCompat="@android:drawable/ic_menu_add" />
-
-</LinearLayout>
+</ScrollView>

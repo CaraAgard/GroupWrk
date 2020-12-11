@@ -10,22 +10,26 @@
 
     <TextView
         android:id="@+id/viewTitle"
-        android:layout_width="371dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="cursive"
         android:text="@string/login_title"
         android:textColor="@color/white"
         android:textSize="60sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/enter_your_pin"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -33,31 +37,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
 
     <EditText
         android:id="@+id/editTextNumberPassword3"
-        android:hint="@string/your_pin"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@android:drawable/screen_background_light_transparent"
         android:ems="10"
         android:gravity="center_horizontal"
+        android:hint="@string/your_pin"
         android:importantForAutofill="no"
         android:inputType="numberPassword"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="32dp"
         android:onClick="onSubmit"
         android:text="@string/submit"
         app:backgroundTint="#6B4F9C"
@@ -66,4 +71,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword3" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Reset"
+        android:onClick="onReset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

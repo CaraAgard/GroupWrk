@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -29,11 +30,17 @@ public class PreLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_login);
-        setTitle(null);
         setTitle("Create Pin");
 
+        //Set EditText objects to the user input
         pinObj = (EditText) findViewById(R.id.editTextNumberPassword);
         pinConfirmObj = (EditText) findViewById(R.id.editTextNumberPassword2);
+
+        //Create a constraint on the input for the pinObj and pinConfirmObj to only 4 characters
+        InputFilter[] filterArray = new InputFilter[1];
+        filterArray[0] = new InputFilter.LengthFilter(4);
+        pinObj.setFilters(filterArray);
+        pinConfirmObj.setFilters(filterArray);
     }
 
     public void onSubmit(View Submit) {
@@ -52,6 +59,7 @@ public class PreLoginActivity extends AppCompatActivity {
             // get editor first
             SharedPreferences sharedPreferences = getSharedPreferences(PASS_PREFS, Context.MODE_PRIVATE);
             SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+
             // save pin via (key, value)
             sharedPreferencesEditor.putString(PIN_KEY, pinString);
             sharedPreferencesEditor.apply();
@@ -59,9 +67,14 @@ public class PreLoginActivity extends AppCompatActivity {
             // todo: move from source code folder to test code folder
             testPin(pinString);
 
+            //Send intent and start the activity
             Log.d(TAG, "Going back to LoginActivity");
             passwordSetupSuccessIntent = new Intent(this, LoginActivity.class);
             startActivity(passwordSetupSuccessIntent);
+
+            //This should stop the user from using the back button to return to this page.
+            finish();
+
         } else {
             Toast.makeText(this, "An error occurred with your PIN, try again.",
                     Toast.LENGTH_LONG).show();
