@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sunrise"
-    tools:context=".activites.LoginActivity">
+    tools:context=".activities.LoginActivity">
 
 
     <TextView
@@ -52,7 +52,6 @@
         android:importantForAutofill="no"
         android:inputType="numberPassword"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />

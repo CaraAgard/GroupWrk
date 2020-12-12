@@ -1,4 +1,4 @@
-package com.example.group07.activites;
+package com.example.group07.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.example.group07.R;
 
-import static com.example.group07.activites.PreLoginActivity.PASS_PREFS;
-import static com.example.group07.activites.PreLoginActivity.PIN_KEY;
+import static com.example.group07.activities.PreLoginActivity.PASS_PREFS;
+import static com.example.group07.activities.PreLoginActivity.PIN_KEY;
 
 public class LoginActivity extends AppCompatActivity {
 
