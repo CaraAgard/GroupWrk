@@ -25,10 +25,10 @@
                 android:text="@string/login_title"
                 android:textColor="@color/white"
                 android:textSize="60sp"
-                android:shadowColor = "#444"
-                android:shadowDx = "2"
-                android:shadowDy = "2"
-                android:shadowRadius = "4"
+                android:shadowColor = "#333"
+                android:shadowDx = "3"
+                android:shadowDy = "3"
+                android:shadowRadius = "2"
                 />
 
             <TextView
