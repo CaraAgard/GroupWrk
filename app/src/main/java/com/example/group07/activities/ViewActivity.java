@@ -1,4 +1,4 @@
-package com.example.group07.activites;
+package com.example.group07.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -77,7 +77,7 @@ public class ViewActivity extends AppCompatActivity {
 
     /**
      * Delete an entry with its id
-     * @param view
+     * @param view to delete the entry
      */
     public void deleteEntry(View view) {
         // get reference to database and the entry id then delete data by
@@ -108,7 +108,7 @@ public class ViewActivity extends AppCompatActivity {
 
     /**
      * This function will get you back to the BrowseActivity
-     * @param view
+     * @param view to get back to Browse
      */
     public void backToBrowse(View view) {
         Intent intent = new Intent(this, BrowseActivity.class);

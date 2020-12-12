@@ -1,4 +1,4 @@
-package com.example.group07.activites;
+package com.example.group07.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -13,13 +14,12 @@ import android.widget.Toast;
 
 import com.example.group07.R;
 
-import static com.example.group07.activites.PreLoginActivity.PASS_PREFS;
-import static com.example.group07.activites.PreLoginActivity.PIN_KEY;
+import static com.example.group07.activities.PreLoginActivity.PASS_PREFS;
+import static com.example.group07.activities.PreLoginActivity.PIN_KEY;
 
 public class LoginActivity extends AppCompatActivity {
 
     private String TAG = "LoginActivity";
-
     private EditText passwordObj;
     private String pinString;
     private int numAttemptsLeft;
@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setTitle(null);
 
         Log.d(TAG, "onCreate");
 
@@ -44,6 +43,11 @@ public class LoginActivity extends AppCompatActivity {
 
         //Define the password text box in view
         passwordObj = (EditText) findViewById(R.id.editTextNumberPassword3);
+
+        //Create a constraint on the input for the passwordObj to only 4 characters
+        InputFilter[] filterArray = new InputFilter[1];
+        filterArray[0] = new InputFilter.LengthFilter(4);
+        passwordObj.setFilters(filterArray);
 
         // set number of attempts
         numAttemptsLeft = 5;
@@ -65,6 +69,10 @@ public class LoginActivity extends AppCompatActivity {
            // Intent passwordSuccessfulIntent = new Intent(this, MainActivity.class);
             Intent passwordSuccessfulIntent = new Intent(this, BrowseActivity.class);
             startActivity(passwordSuccessfulIntent);
+
+            //This should stop the user from using the back button to get back to this screen.
+            finish();
+
         } else {
             //Increase the counter
             numAttemptsLeft--;
@@ -76,4 +84,10 @@ public class LoginActivity extends AppCompatActivity {
         //Do something else here if the user was unable to login after 5 attempts.
     }
 
+    public void onReset(View Reset) {
+        Log.d(TAG, "onReset:start");
+
+        Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
+        startActivity(preLoginIntent);
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.group07.activites;
+package com.example.group07.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
