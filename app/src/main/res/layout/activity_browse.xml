@@ -8,14 +8,15 @@
     android:orientation="vertical"
     android:background="@drawable/th">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="60sp"
-            android:textColor="@color/white"
-            android:fontFamily="cursive"
-            android:text="@string/browse_title"
-            android:id="@+id/viewTitle"/>
+    <!-- We already have the title in the action Bar -->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="60sp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:fontFamily="cursive"-->
+<!--            android:text="@string/browse_title"-->
+<!--            android:id="@+id/viewTitle"/>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
