@@ -24,7 +24,12 @@
                 android:fontFamily="cursive"
                 android:text="@string/login_title"
                 android:textColor="@color/white"
-                android:textSize="60sp" />
+                android:textSize="60sp"
+                android:shadowColor = "#444"
+                android:shadowDx = "2"
+                android:shadowDy = "2"
+                android:shadowRadius = "4"
+                />
 
             <TextView
                 android:id="@+id/textView4"
@@ -34,7 +39,12 @@
                 android:text="@string/enter_your_pin"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:shadowColor = "#444"
+                android:shadowDx = "2"
+                android:shadowDy = "2"
+                android:shadowRadius = "4"
+                />
 
             <EditText
                 android:id="@+id/editTextNumberPassword3"
