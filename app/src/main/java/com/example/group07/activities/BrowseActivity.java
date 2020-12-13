@@ -43,9 +43,6 @@ public class BrowseActivity extends AppCompatActivity {
         return true;
     }
 
-
-
-
     /**
      * Where the magic of getting all the data from the list of entries and displaying them
      * back to the user will happen.
@@ -78,22 +75,16 @@ public class BrowseActivity extends AppCompatActivity {
         Log.d(TAG, "setting the adapter");
         Log.d(TAG, "RecyclerAdapter:" + firebaseRecyclerAdapter.toString());
         recyclerView.setAdapter(firebaseRecyclerAdapter);
-
-       // findViewById(R.id.view_notification_button).setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-         //       createNotification();
-
-         //   }
-      //  });
-
     }
 
+    /**
+     * Creates a daily notification to display on the phone to remind user to write what they are grateful for the day
+     */
     private void createNotification() {
         Calendar calendar = Calendar.getInstance();
 
         calendar.set(Calendar.HOUR_OF_DAY, 19);
-        calendar.set(Calendar.MINUTE, 14);
+        calendar.set(Calendar.MINUTE, 43);
         calendar.set(Calendar.SECOND, 0);
 
         Intent intent = new Intent(getApplicationContext(), Notification_receiver.class);
@@ -106,30 +97,42 @@ public class BrowseActivity extends AppCompatActivity {
 
 
     @Override
-            public void onStart() {
-                super.onStart();
-                // Check if user is signed in.
-                // TODO: Add code to check if user is signed in.
-            }
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in.
+        // TODO: Add code to check if user is signed in.
+    }
 
-            @Override
-            public void onPause() {
-                firebaseRecyclerAdapter.stopListening();
-                super.onPause();
-            }
+    /**
+     * Stop listening to Firebase when not in the app to preserve energy
+     */
+    @Override
+    public void onPause() {
+        firebaseRecyclerAdapter.stopListening();
+        super.onPause();
+    }
 
-            @Override
-            public void onResume() {
-                super.onResume();
-                // allows the adapter to update content
-                firebaseRecyclerAdapter.startListening();
-            }
+    /**
+     * Start listening to Firebase to update stuff
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        // allows the adapter to update content
+        firebaseRecyclerAdapter.startListening();
+    }
 
 
-            public void goToMainActivity(View view) {
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-            }
+    public void goToMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Allows the menu in Browse activity to work
+     * @param item of the menu
+     * @return whether the item was tapped
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -142,4 +145,5 @@ public class BrowseActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
-        }}
+    }
+}

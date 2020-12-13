@@ -1,4 +1,4 @@
-package com.example.group07.activites;
+package com.example.group07.activities;
 
 import android.os.Bundle;
 

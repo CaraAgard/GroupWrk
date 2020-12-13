@@ -1,4 +1,4 @@
-package com.example.group07.activites;
+package com.example.group07.activities;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -39,7 +39,7 @@ public class Notification_receiver extends BroadcastReceiver {
         builder.setContentIntent(pendingIntent);
         builder.setSmallIcon(R.drawable.ic_launcher_background);
         builder.setContentTitle("Gratitude App");
-        builder.setContentText("Reminder to write your entry today!");
+        builder.setContentText("Reminder: Write what you are grateful for today!");
         builder.setAutoCancel(true);
 
 

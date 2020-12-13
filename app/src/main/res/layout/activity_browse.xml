@@ -8,35 +8,17 @@
     android:orientation="vertical"
     android:background="@drawable/th">
 
-    <!-- We already have the title in the action Bar -->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="60sp"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:fontFamily="cursive"-->
-<!--            android:text="@string/browse_title"-->
-<!--            android:id="@+id/viewTitle"/>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="10dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/browseRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:drawable/screen_background_light_transparent" />
-
-   <!-- </LinearLayout><Button
-    android:id="@+id/view_notification_button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:backgroundTint="#6B4F9C"
-    android:onClick="@string/default_notification_channel_id"
-    android:text="Set Notification"/>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/browseRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:drawable/screen_background_light_transparent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/button_new_entry"
