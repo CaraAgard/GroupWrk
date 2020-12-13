@@ -1,5 +1,6 @@
 package com.example.group07.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +11,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.group07.classes.DatabaseFacade;
 import com.example.group07.R;
@@ -23,12 +28,20 @@ import java.util.Calendar;
  * entries that they have created. Will be displayed with a ListView
  */
 public class BrowseActivity extends AppCompatActivity {
+   // MenuInflater inflater = getMenuInflater();
 
     private String TAG = "BrowseActivity";
     private String author;
     private Context contextBrowseActivity;
     private DatabaseFacade database;
     private FirebaseRecyclerAdapter firebaseRecyclerAdapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.browse_menu, menu);
+        return true;
+    }
 
 
 
@@ -66,29 +79,33 @@ public class BrowseActivity extends AppCompatActivity {
         Log.d(TAG, "RecyclerAdapter:" + firebaseRecyclerAdapter.toString());
         recyclerView.setAdapter(firebaseRecyclerAdapter);
 
-        findViewById(R.id.view_notification_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
+       // findViewById(R.id.view_notification_button).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+         //       createNotification();
 
-                calendar.set(Calendar.HOUR_OF_DAY, 9);
-                calendar.set(Calendar.MINUTE, 30);
-                calendar.set(Calendar.SECOND, 0);
-
-                Intent intent = new Intent(getApplicationContext(), Notification_receiver.class);
-
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-
-            }
-        });
+         //   }
+      //  });
 
     }
 
+    private void createNotification() {
+        Calendar calendar = Calendar.getInstance();
 
-            @Override
+        calendar.set(Calendar.HOUR_OF_DAY, 19);
+        calendar.set(Calendar.MINUTE, 14);
+        calendar.set(Calendar.SECOND, 0);
+
+        Intent intent = new Intent(getApplicationContext(), Notification_receiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+    }
+
+
+    @Override
             public void onStart() {
                 super.onStart();
                 // Check if user is signed in.
@@ -113,4 +130,16 @@ public class BrowseActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.notification:
+                createNotification();
+
+                Toast.makeText(this, "Notification selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+
+        }}
