@@ -1,10 +1,14 @@
 package com.example.group07.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -50,6 +54,30 @@ public class ViewActivity extends AppCompatActivity {
         setTextInViews();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.view_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.view_menu_delete:
+                deleteEntry();
+                return true;
+            case R.id.view_menu_edit:
+                goToEditActivity();
+                return true;
+            case R.id.view_menu_to_browse:
+                backToBrowse();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void setViews() {
         dateView = findViewById(R.id.mainDate);
         titleView = findViewById(R.id.viewTitle);
@@ -76,7 +104,7 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     /**
-     * Delete an entry with its id
+     * Delete an entry with its id. For buttons in view.
      * @param view to delete the entry
      */
     public void deleteEntry(View view) {
@@ -94,9 +122,17 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     /**
+     * Delete an entry. Functionality for menu items.
+     */
+    public void deleteEntry() {
+        deleteEntry(null);
+    }
+
+    /**
      * Go to Edit Activity
      */
     public void goToEditActivity(View view) {
+        Log.d(TAG, "Going to the edit activity");
         Intent intent = new Intent(this, EditActivity.class);
         // startActivity(intent);
         intent.putExtra(Entry.idKey, idStr);
@@ -104,6 +140,14 @@ public class ViewActivity extends AppCompatActivity {
         intent.putExtra(Entry.bodyKey, bodyStr);
         intent.putExtra(Entry.dateKey, dateStr);
         startActivity(intent);
+    }
+
+    /**
+     * Edit an entry for menu item
+     */
+    public void goToEditActivity() {
+        Log.d(TAG, "Calling other function");
+        goToEditActivity(null);
     }
 
     /**
@@ -115,6 +159,9 @@ public class ViewActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Back to Browse for menu items
+     */
     public void backToBrowse() {
         backToBrowse(null);
     }

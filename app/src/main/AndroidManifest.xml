@@ -19,9 +19,9 @@
         <activity android:name=".activities.BrowseActivity" />
         <activity android:name=".activities.ViewActivity"
             android:parentActivityName=".activities.BrowseActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".activities.BrowseActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.BrowseActivity" />
         </activity>
         <activity android:name=".activities.MainActivity" />
     </application>
