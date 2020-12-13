@@ -58,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
 
         //Bring the value from passwordObj into password String
         String password = passwordObj.getText().toString();
-        Log.d(TAG, "user entered: " + password);
 
         //Check if pinString string is equivalent to password
         if (numAttemptsLeft <= 1) {
@@ -87,7 +86,15 @@ public class LoginActivity extends AppCompatActivity {
     public void onReset(View Reset) {
         Log.d(TAG, "onReset:start");
 
-        Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
-        startActivity(preLoginIntent);
+        //Bring the value from passwordObj into password String
+        String password = passwordObj.getText().toString();
+
+        if (pinString.equals(password)) {
+            Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
+            startActivity(preLoginIntent);
+        } else {
+            Toast.makeText(this, "You need to enter your PIN above in order to reset it.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }
