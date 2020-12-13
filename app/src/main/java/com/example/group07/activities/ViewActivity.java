@@ -21,17 +21,17 @@ import com.example.group07.R;
  */
 public class ViewActivity extends AppCompatActivity {
 
+    //Variables
     private String TAG = "ViewActivity";
     private TextView dateView;
     private TextView bodyView;
     private TextView titleView;
-
     private String dateStr;
     private String bodyStr;
     private String titleStr;
     private String idStr;
 
-    // firebase reference
+    //Firebase reference
     DatabaseFacade database;
 
     /**
@@ -140,6 +140,9 @@ public class ViewActivity extends AppCompatActivity {
         intent.putExtra(Entry.bodyKey, bodyStr);
         intent.putExtra(Entry.dateKey, dateStr);
         startActivity(intent);
+
+        //This should close the activity after leaving
+        finish();
     }
 
     /**

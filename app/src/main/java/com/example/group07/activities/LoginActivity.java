@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
     private String TAG = "LoginActivity";
     private EditText passwordObj;
     private String pinString;
-    private int numAttemptsLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         InputFilter[] filterArray = new InputFilter[1];
         filterArray[0] = new InputFilter.LengthFilter(4);
         passwordObj.setFilters(filterArray);
-
-        // set number of attempts
-        numAttemptsLeft = 5;
     }
 
     public void onSubmit(View Submit) {
@@ -60,27 +56,18 @@ public class LoginActivity extends AppCompatActivity {
         String password = passwordObj.getText().toString();
 
         //Check if pinString string is equivalent to password
-        if (numAttemptsLeft <= 1) {
-            Toast.makeText(this, "Sorry, you exceeded your number of attempts",
-                    Toast.LENGTH_LONG).show();
-        } else if (pinString.equals(password)) {
+        if (pinString.equals(password)) {
             //Creating password intent to send to main activity
-           // Intent passwordSuccessfulIntent = new Intent(this, MainActivity.class);
             Intent passwordSuccessfulIntent = new Intent(this, BrowseActivity.class);
             startActivity(passwordSuccessfulIntent);
 
             //This should stop the user from using the back button to get back to this screen.
             finish();
-
         } else {
-            //Increase the counter
-            numAttemptsLeft--;
-
-            //If not, then provide a toast with an error message about how many attempts are left
-            Toast.makeText(this, "An error occurred with your PIN, try again. You "
-                    + "have " + numAttemptsLeft + " attempts left", Toast.LENGTH_LONG).show();
+            //If not, then provide a toast with an error message.
+            Toast.makeText(this, "An error occurred with your PIN, try again.",
+                    Toast.LENGTH_LONG).show();
         }
-        //Do something else here if the user was unable to login after 5 attempts.
     }
 
     public void onReset(View Reset) {
@@ -93,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent preLoginIntent = new Intent(this, PreLoginActivity.class);
             startActivity(preLoginIntent);
         } else {
-            Toast.makeText(this, "You need to enter your PIN above in order to reset it.",
+            Toast.makeText(this, "Enter your PIN above in order to reset it.",
                     Toast.LENGTH_LONG).show();
         }
     }
