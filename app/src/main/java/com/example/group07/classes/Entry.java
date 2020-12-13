@@ -30,8 +30,14 @@ public class Entry {
     public Entry(String title, String body) {
         this.title = title;
         this.body = body;
-        date = LocalDateTime.now().toString();
+        date = getCurrentDate();
         Log.d("Entry", "entry function");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    protected String getCurrentDate() {
+        String temp = LocalDateTime.now().toString();
+        return DateHelper.getPrettyDate(temp);
     }
 
     public Entry() {}
