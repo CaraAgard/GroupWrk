@@ -1,24 +1,34 @@
 package com.example.group07.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.group07.classes.DatabaseFacade;
 import com.example.group07.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+
+import java.util.Calendar;
 
 /**
  * BrowseActivity is the screen on the app where the user will be able to view a list of previous
  * entries that they have created. Will be displayed with a ListView
  */
 public class BrowseActivity extends AppCompatActivity {
+   // MenuInflater inflater = getMenuInflater();
 
     private String TAG = "BrowseActivity";
     private String author;
@@ -26,6 +36,12 @@ public class BrowseActivity extends AppCompatActivity {
     private DatabaseFacade database;
     private FirebaseRecyclerAdapter firebaseRecyclerAdapter;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.browse_menu, menu);
+        return true;
+    }
 
     /**
      * Where the magic of getting all the data from the list of entries and displaying them
@@ -59,9 +75,26 @@ public class BrowseActivity extends AppCompatActivity {
         Log.d(TAG, "setting the adapter");
         Log.d(TAG, "RecyclerAdapter:" + firebaseRecyclerAdapter.toString());
         recyclerView.setAdapter(firebaseRecyclerAdapter);
-
-
     }
+
+    /**
+     * Creates a daily notification to display on the phone to remind user to write what they are grateful for the day
+     */
+    private void createNotification() {
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.HOUR_OF_DAY, 19);
+        calendar.set(Calendar.MINUTE, 43);
+        calendar.set(Calendar.SECOND, 0);
+
+        Intent intent = new Intent(getApplicationContext(), Notification_receiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+    }
+
 
     @Override
     public void onStart() {
@@ -70,12 +103,18 @@ public class BrowseActivity extends AppCompatActivity {
         // TODO: Add code to check if user is signed in.
     }
 
+    /**
+     * Stop listening to Firebase when not in the app to preserve energy
+     */
     @Override
     public void onPause() {
         firebaseRecyclerAdapter.stopListening();
         super.onPause();
     }
 
+    /**
+     * Start listening to Firebase to update stuff
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -87,5 +126,24 @@ public class BrowseActivity extends AppCompatActivity {
     public void goToMainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    /**
+     * Allows the menu in Browse activity to work
+     * @param item of the menu
+     * @return whether the item was tapped
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.notification:
+                createNotification();
+
+                Toast.makeText(this, "Notification selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 }
